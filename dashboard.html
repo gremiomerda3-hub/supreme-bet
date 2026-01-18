@@ -2,32 +2,57 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Painel Profissional</title>
+  <title>Painel Admin • Bet</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body onload="checkAdmin()">
 
 <header class="topo">
-  <h1>SUA BET • ADMIN</h1>
-  <button onclick="logout()">Sair</button>
+  <div class="logo">SUA<span>BET</span></div>
+  <button class="btn-sair" onclick="logout()">Sair</button>
 </header>
 
-<div class="container">
-  <aside class="menu">
+<div class="layout">
+  <aside class="sidebar">
+    <h3>ADMIN</h3>
     <ul>
-      <li onclick="show('resumo')">Resumo</li>
-      <li onclick="show('usuarios')">Usuários</li>
+      <li onclick="show('resumo')">📊 Dashboard</li>
+      <li onclick="show('usuarios')">👥 Usuários</li>
+      <li onclick="show('relatorios')">📈 Relatórios</li>
     </ul>
   </aside>
 
   <main class="conteudo">
+    <!-- DASHBOARD -->
     <section id="resumo" class="painel">
-      <h2>Login funcionando</h2>
-      <p>Painel acessado com sucesso.</p>
+      <h2>Visão Geral</h2>
+
+      <div class="cards">
+        <div class="card">
+          <span>Usuários</span>
+          <strong>128</strong>
+        </div>
+        <div class="card">
+          <span>Apostas Hoje</span>
+          <strong>R$ 2.450</strong>
+        </div>
+        <div class="card green">
+          <span>Lucro</span>
+          <strong>R$ 740</strong>
+        </div>
+      </div>
     </section>
 
+    <!-- USUÁRIOS -->
     <section id="usuarios" class="painel hidden">
+      <h2>Usuários</h2>
       <p>Gestão de usuários (próxima etapa)</p>
+    </section>
+
+    <!-- RELATÓRIOS -->
+    <section id="relatorios" class="painel hidden">
+      <h2>Relatórios</h2>
+      <p>Relatórios por data (próxima etapa)</p>
     </section>
   </main>
 </div>
