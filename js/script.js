@@ -1,31 +1,62 @@
+/* =====================
+   CONFIGURAÇÕES
+===================== */
 const ADMIN_USER = "Gremiis";
-const ADMIN_PASS = "Sintia1404+";
 
-/* LOGIN */
+/* senha ofuscada (base para hash real depois)
+   Sintia1404+  */
+const ADMIN_PASS_HASH = btoa("Sintia1404+");
+
+/* sessão expira em 30 minutos */
+const SESSION_TIME = 30 * 60 * 1000;
+
+/* =====================
+   LOGIN
+===================== */
 function loginAdmin() {
   const u = document.getElementById("login").value;
   const p = document.getElementById("senha").value;
 
-  if (u === ADMIN_USER && p === ADMIN_PASS) {
+  if (u === ADMIN_USER && btoa(p) === ADMIN_PASS_HASH) {
+    const now = new Date().getTime();
     sessionStorage.setItem("adminLogado", "true");
+    sessionStorage.setItem("loginTime", now);
     window.location.href = "dashboard.html";
   } else {
-    document.getElementById("msg").innerText = "Login inválido";
+    document.getElementById("msg").innerText =
+      "Usuário ou senha inválidos";
   }
 }
 
+/* =====================
+   PROTEÇÃO DE SESSÃO
+===================== */
 function checkAdmin() {
-  if (sessionStorage.getItem("adminLogado") !== "true") {
+  const logado = sessionStorage.getItem("adminLogado");
+  const loginTime = sessionStorage.getItem("loginTime");
+
+  if (!logado || !loginTime) {
     window.location.href = "index.html";
+    return;
+  }
+
+  const now = new Date().getTime();
+  if (now - loginTime > SESSION_TIME) {
+    logout();
   }
 }
 
+/* =====================
+   LOGOUT
+===================== */
 function logout() {
-  sessionStorage.removeItem("adminLogado");
+  sessionStorage.clear();
   window.location.href = "index.html";
 }
 
-/* MENU */
+/* =====================
+   MENU
+===================== */
 function show(id) {
   document.querySelectorAll(".painel").forEach(p =>
     p.classList.add("hidden")
@@ -33,7 +64,9 @@ function show(id) {
   document.getElementById(id).classList.remove("hidden");
 }
 
-/* USUÁRIOS */
+/* =====================
+   USUÁRIOS (ADMIN)
+===================== */
 function carregarUsuarios() {
   const lista = document.getElementById("listaUsuarios");
   if (!lista) return;
@@ -67,10 +100,6 @@ function criarUsuario() {
   usuarios.push({ nome, saldo });
 
   localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-  document.getElementById("u_nome").value = "";
-  document.getElementById("u_saldo").value = "";
-
   carregarUsuarios();
 }
 
@@ -80,3 +109,8 @@ function excluirUsuario(index) {
   localStorage.setItem("usuarios", JSON.stringify(usuarios));
   carregarUsuarios();
 }
+
+/* =====================
+   BLOQUEIOS BÁSICOS
+===================== */
+document.addEventListener("contextmenu", e => e.preventDefault());
