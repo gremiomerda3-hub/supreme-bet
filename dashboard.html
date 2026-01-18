@@ -5,7 +5,7 @@
   <title>Painel Admin • Bet</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="checkAdmin()">
+<body onload="checkAdmin(); carregarUsuarios()">
 
 <header class="topo">
   <div class="logo">SUA<span>BET</span></div>
@@ -18,7 +18,6 @@
     <ul>
       <li onclick="show('resumo')">📊 Dashboard</li>
       <li onclick="show('usuarios')">👥 Usuários</li>
-      <li onclick="show('relatorios')">📈 Relatórios</li>
     </ul>
   </aside>
 
@@ -26,33 +25,29 @@
     <!-- DASHBOARD -->
     <section id="resumo" class="painel">
       <h2>Visão Geral</h2>
-
-      <div class="cards">
-        <div class="card">
-          <span>Usuários</span>
-          <strong>128</strong>
-        </div>
-        <div class="card">
-          <span>Apostas Hoje</span>
-          <strong>R$ 2.450</strong>
-        </div>
-        <div class="card green">
-          <span>Lucro</span>
-          <strong>R$ 740</strong>
-        </div>
-      </div>
+      <p>Painel administrativo ativo.</p>
     </section>
 
     <!-- USUÁRIOS -->
     <section id="usuarios" class="painel hidden">
-      <h2>Usuários</h2>
-      <p>Gestão de usuários (próxima etapa)</p>
-    </section>
+      <h2>Cadastro de Usuários</h2>
 
-    <!-- RELATÓRIOS -->
-    <section id="relatorios" class="painel hidden">
-      <h2>Relatórios</h2>
-      <p>Relatórios por data (próxima etapa)</p>
+      <div class="form-user">
+        <input id="u_nome" placeholder="Usuário">
+        <input id="u_saldo" type="number" placeholder="Saldo inicial">
+        <button onclick="criarUsuario()">Criar Usuário</button>
+      </div>
+
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Usuário</th>
+            <th>Saldo</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="listaUsuarios"></tbody>
+      </table>
     </section>
   </main>
 </div>
