@@ -2,48 +2,36 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Painel Admin - Sua Bet</title>
+  <title>Painel Profissional</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="verificarLogin()">
+<body onload="checkAdmin()">
 
 <header class="topo">
-  <h1>SUA BET — ADMIN</h1>
-  <button onclick="sair()">Sair</button>
+  <h1>SUA BET • ADMIN</h1>
+  <button onclick="logout()">Sair</button>
 </header>
 
 <div class="container">
-
   <aside class="menu">
-    <h3>Controle</h3>
     <ul>
-      <li onclick="mostrar('apostas')">📊 Apostas</li>
-      <li onclick="mostrar('saldo')">💰 Saldo</li>
-      <li onclick="mostrar('jogos')">⚽ Jogos</li>
+      <li onclick="show('resumo')">Resumo</li>
+      <li onclick="show('usuarios')">Usuários</li>
     </ul>
   </aside>
 
   <main class="conteudo">
-
-    <section id="apostas" class="painel">
-      <h2>Apostas Simuladas</h2>
-      <p>Total: <strong>R$ 1.250,00</strong></p>
+    <section id="resumo" class="painel">
+      <h2>Login funcionando</h2>
+      <p>Painel acessado com sucesso.</p>
     </section>
 
-    <section id="saldo" class="painel escondido">
-      <h2>Saldo da Plataforma</h2>
-      <p><strong>R$ 50.000,00</strong> (simulação)</p>
+    <section id="usuarios" class="painel hidden">
+      <p>Gestão de usuários (próxima etapa)</p>
     </section>
-
-    <section id="jogos" class="painel escondido">
-      <h2>Gerenciar Jogos</h2>
-      <button onclick="alert('Jogo criado (simulação)')">+ Novo Jogo</button>
-    </section>
-
   </main>
-
 </div>
 
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
