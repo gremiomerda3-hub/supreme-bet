@@ -5,20 +5,41 @@ body {
   color: #fff;
 }
 
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  background: #123c2b;
+  padding: 30px;
+  width: 300px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  background: #ffc107;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .topo {
   background: #0f5132;
   padding: 15px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-
-.btn-login {
-  background: #ffc107;
-  border: none;
-  padding: 10px 15px;
-  font-weight: bold;
-  cursor: pointer;
 }
 
 .container {
@@ -26,19 +47,18 @@ body {
 }
 
 .menu {
-  width: 200px;
+  width: 220px;
   background: #0a3622;
   padding: 15px;
 }
 
-.menu ul {
-  list-style: none;
-  padding: 0;
+.menu li {
+  padding: 10px;
+  cursor: pointer;
 }
 
-.menu li {
-  padding: 8px 0;
-  cursor: pointer;
+.menu li:hover {
+  background: #146c43;
 }
 
 .conteudo {
@@ -46,27 +66,12 @@ body {
   padding: 20px;
 }
 
-.jogo {
+.painel {
   background: #123c2b;
-  margin-bottom: 15px;
-  padding: 15px;
+  padding: 20px;
   border-radius: 6px;
 }
 
-.odds {
-  margin-top: 10px;
-}
-
-.odds button {
-  background: #198754;
-  border: none;
-  color: #fff;
-  padding: 10px;
-  margin-right: 5px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.odds button:hover {
-  background: #146c43;
+.escondido {
+  display: none;
 }
