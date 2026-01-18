@@ -1,4 +1,3 @@
-
 const ADMIN={user:"Gremiis",pass:"Sintia1404+"};
 
 function loginAdmin(){
