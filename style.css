@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b1f17;
+  color: #fff;
+}
+
+.topo {
+  background: #0f5132;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-login {
+  background: #ffc107;
+  border: none;
+  padding: 10px 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+}
+
+.menu {
+  width: 200px;
+  background: #0a3622;
+  padding: 15px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.conteudo {
+  flex: 1;
+  padding: 20px;
+}
+
+.jogo {
+  background: #123c2b;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.odds {
+  margin-top: 10px;
+}
+
+.odds button {
+  background: #198754;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.odds button:hover {
+  background: #146c43;
+}
