@@ -15,20 +15,18 @@ body {
 .login-box {
   background: #123c2b;
   padding: 30px;
-  width: 300px;
   border-radius: 8px;
-  text-align: center;
+  width: 300px;
 }
 
-.login-box input {
+.login-box input,
+button {
   width: 100%;
   padding: 10px;
-  margin: 8px 0;
+  margin: 6px 0;
 }
 
-.login-box button {
-  width: 100%;
-  padding: 10px;
+button {
   background: #ffc107;
   border: none;
   font-weight: bold;
@@ -47,14 +45,14 @@ body {
 }
 
 .menu {
-  width: 220px;
+  width: 200px;
   background: #0a3622;
   padding: 15px;
 }
 
 .menu li {
-  padding: 10px;
   cursor: pointer;
+  padding: 10px;
 }
 
 .menu li:hover {
@@ -72,6 +70,6 @@ body {
   border-radius: 6px;
 }
 
-.escondido {
+.hidden {
   display: none;
 }
