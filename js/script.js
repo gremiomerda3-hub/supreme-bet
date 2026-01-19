@@ -1,92 +1,56 @@
-* { box-sizing: border-box; }
+const ADMIN_USER="Gremiis";
+const ADMIN_PASS="Sintia1404+";
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b1f17;
-  color: #fff;
+function loginAdmin(){
+  const u=login.value,p=senha.value;
+  if(u===ADMIN_USER && p===ADMIN_PASS){
+    sessionStorage.setItem("admin","1");
+    location.href="dashboard.html";
+  }else msg.innerText="Acesso negado";
 }
 
-.login-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+function checkAdmin(){
+  if(!sessionStorage.getItem("admin")) location.href="index.html";
 }
 
-.login-box {
-  background: #123c2b;
-  padding: 30px;
-  border-radius: 8px;
-  width: 300px;
+function logout(){
+  sessionStorage.clear(); location.href="index.html";
 }
 
-.login-box input, button {
-  width: 100%;
-  padding: 10px;
-  margin: 6px 0;
+function show(id){
+  document.querySelectorAll(".painel").forEach(p=>p.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
 }
 
-button {
-  background: #ffc107;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
+function carregarUsuarios(){
+  const usuarios=JSON.parse(localStorage.getItem("usuarios"))||[];
+  const lista=document.getElementById("listaUsuarios");
+  if(!lista) return;
+  lista.innerHTML="";
+  usuarios.forEach((u,i)=>{
+    lista.innerHTML+=`
+      <tr>
+        <td>${u.nome}</td>
+        <td>R$ ${u.saldo.toFixed(2)}</td>
+        <td><button onclick="delUser(${i})">❌</button></td>
+      </tr>`;
+  });
+  document.getElementById("qtdUsers").innerText=usuarios.length;
 }
 
-.topo {
-  height: 60px;
-  background: #0f5132;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
+function criarUsuario(){
+  const nome=u_nome.value;
+  const saldo=parseFloat(u_saldo.value);
+  if(!nome||isNaN(saldo))return;
+  const usuarios=JSON.parse(localStorage.getItem("usuarios"))||[];
+  usuarios.push({nome,saldo});
+  localStorage.setItem("usuarios",JSON.stringify(usuarios));
+  carregarUsuarios();
 }
 
-.logo span { color: #ffc107; }
-
-.btn-sair {
-  background: #dc3545;
-  color: #fff;
-  border: none;
-  padding: 8px 14px;
-}
-
-.layout { display: flex; height: calc(100vh - 60px); }
-
-.sidebar {
-  width: 220px;
-  background: #0a3622;
-  padding: 20px;
-}
-
-.sidebar li {
-  padding: 12px;
-  cursor: pointer;
-}
-
-.sidebar li:hover { background: #146c43; }
-
-.conteudo {
-  flex: 1;
-  padding: 20px;
-}
-
-.painel {
-  background: #123c2b;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.hidden { display: none; }
-
-.tabela {
-  width: 100%;
-  margin-top: 15px;
-  border-collapse: collapse;
-}
-
-.tabela th, .tabela td {
-  border-bottom: 1px solid #1e5c44;
-  padding: 10px;
+function delUser(i){
+  const u=JSON.parse(localStorage.getItem("usuarios"))||[];
+  u.splice(i,1);
+  localStorage.setItem("usuarios",JSON.stringify(u));
+  carregarUsuarios();
 }
