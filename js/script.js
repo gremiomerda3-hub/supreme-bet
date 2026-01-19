@@ -1,56 +1,74 @@
-const ADMIN_USER="Gremiis";
-const ADMIN_PASS="Sintia1404+";
+// ===== ADMIN =====
+const ADMIN_USER = "Gremiis";
+const ADMIN_PASS = "Sintia1404+";
 
-function loginAdmin(){
-  const u=login.value,p=senha.value;
-  if(u===ADMIN_USER && p===ADMIN_PASS){
-    sessionStorage.setItem("admin","1");
-    location.href="dashboard.html";
-  }else msg.innerText="Acesso negado";
+// ===== USUÁRIOS DEMO =====
+let usuarios = [
+  { user: "joao", senha: "123", saldo: 100 },
+  { user: "maria", senha: "123", saldo: 100 }
+];
+
+// ===== LOGIN ADMIN =====
+function loginAdmin() {
+  const u = document.getElementById("login").value.trim();
+  const p = document.getElementById("senha").value.trim();
+  if (u === ADMIN_USER && p === ADMIN_PASS) {
+    sessionStorage.setItem("adminLogado", "true");
+    window.location.href = "dashboard.html";
+  } else {
+    document.getElementById("msg").innerText = "Usuário ou senha incorretos";
+  }
 }
 
-function checkAdmin(){
-  if(!sessionStorage.getItem("admin")) location.href="index.html";
+function checkAdmin() {
+  if (sessionStorage.getItem("adminLogado") !== "true") {
+    window.location.href = "index.html";
+  }
 }
 
-function logout(){
-  sessionStorage.clear(); location.href="index.html";
+function logout() {
+  sessionStorage.removeItem("adminLogado");
+  sessionStorage.removeItem("userAtivo");
+  window.location.href = "index.html";
 }
 
-function show(id){
-  document.querySelectorAll(".painel").forEach(p=>p.classList.add("hidden"));
+function show(id) {
+  document.querySelectorAll(".painel").forEach(p => p.classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
 }
 
-function carregarUsuarios(){
-  const usuarios=JSON.parse(localStorage.getItem("usuarios"))||[];
-  const lista=document.getElementById("listaUsuarios");
-  if(!lista) return;
-  lista.innerHTML="";
-  usuarios.forEach((u,i)=>{
-    lista.innerHTML+=`
-      <tr>
-        <td>${u.nome}</td>
-        <td>R$ ${u.saldo.toFixed(2)}</td>
-        <td><button onclick="delUser(${i})">❌</button></td>
-      </tr>`;
-  });
-  document.getElementById("qtdUsers").innerText=usuarios.length;
+// ===== LOGIN USUÁRIO =====
+function loginUser() {
+  const u = document.getElementById("userLogin").value.trim();
+  const p = document.getElementById("userSenha").value.trim();
+  const usuario = usuarios.find(x => x.user === u && x.senha === p);
+  if (usuario) {
+    sessionStorage.setItem("userAtivo", u);
+    window.location.href = "painel-user.html";
+  } else {
+    document.getElementById("userMsg").innerText = "Usuário inválido";
+  }
 }
 
-function criarUsuario(){
-  const nome=u_nome.value;
-  const saldo=parseFloat(u_saldo.value);
-  if(!nome||isNaN(saldo))return;
-  const usuarios=JSON.parse(localStorage.getItem("usuarios"))||[];
-  usuarios.push({nome,saldo});
-  localStorage.setItem("usuarios",JSON.stringify(usuarios));
-  carregarUsuarios();
+function checkUser() {
+  if (!sessionStorage.getItem("userAtivo")) window.location.href = "user.html";
 }
 
-function delUser(i){
-  const u=JSON.parse(localStorage.getItem("usuarios"))||[];
-  u.splice(i,1);
-  localStorage.setItem("usuarios",JSON.stringify(u));
-  carregarUsuarios();
+// ===== PAINEL USUÁRIO =====
+function showUser(id) {
+  document.querySelectorAll(".conteudo .painel").forEach(p => p.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+}
+
+// ===== CASSINO DEMO =====
+function jogarSlot(jogo) {
+  const resultado = Math.random() > 0.5 ? "Ganhou!" : "Perdeu!";
+  alert(`${jogo} - ${resultado}`);
+}
+
+// ===== BÔNUS & CASHBACK =====
+function roletaBonus() {
+  const premio = Math.floor(Math.random() * 50) + 1;
+  document.getElementById("mensagemBonus").innerText =
+    `Parabéns! Você ganhou R$${premio} de bônus!`;
 }
