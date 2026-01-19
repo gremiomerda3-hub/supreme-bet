@@ -1,76 +1,20 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b1f17;
-  color: #fff;
-}
-
-.login-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.login-box {
-  background: #123c2b;
-  padding: 30px;
-  border-radius: 8px;
-  width: 300px;
-  text-align: center;
-}
-
-.login-box input,
-button {
-  width: 100%;
-  padding: 10px;
-  margin: 6px 0;
-}
-
-button {
-  background: #ffc107;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.topo {
-  background: #0f5132;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.container {
-  display: flex;
-}
-
-.menu {
-  width: 220px;
-  background: #0a3622;
-  padding: 15px;
-}
-
-.menu li {
-  cursor: pointer;
-  padding: 10px;
-}
-
-.menu li:hover {
-  background: #146c43;
-}
-
-.conteudo {
-  flex: 1;
-  padding: 20px;
-}
-
-.painel {
-  background: #123c2b;
-  padding: 20px;
-  border-radius: 6px;
-}
-
-.hidden {
-  display: none;
-}
+body {margin:0;font-family:Arial;background:#0b1f17;color:#fff}
+.login-body{display:flex;justify-content:center;align-items:center;height:100vh}
+.login-box{background:#123c2b;padding:30px;border-radius:12px;width:320px;text-align:center}
+input,button{width:100%;padding:10px;margin:6px 0;border-radius:6px}
+button{background:#ffc107;border:none;font-weight:700;cursor:pointer;transition:0.3s}
+button:hover{transform:scale(1.05)}
+.topo{display:flex;justify-content:space-between;background:#0f5132;padding:15px;align-items:center}
+.logo span{color:#facc15;font-weight:bold}
+.layout{display:flex}
+.sidebar{width:220px;background:#0a3622;padding:15px}
+.sidebar li{padding:10px;cursor:pointer;transition:0.2s}
+.sidebar li:hover{background:#146c43}
+.conteudo{flex:1;padding:20px}
+.painel{background:#123c2b;padding:20px;border-radius:8px;margin-bottom:12px}
+.hidden{display:none}
+.card{background:#0a3622;padding:15px;border-radius:8px;transition:0.3s}
+.card:hover{transform:scale(1.05)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.odd{background:#22c55e;padding:8px 12px;border-radius:6px;display:inline-block;margin:5px;cursor:pointer;transition:0.2s}
+.odd:hover{transform:scale(1.1);background:#16a34a}
