@@ -1,42 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Painel Admin</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Admin Dashboard • Bet DEMO</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body onload="checkAdmin()">
+<body onload="checkAdmin();loadAdmin()">
 
 <header class="topo">
-  <h1>ADMIN DEMO</h1>
-  <button onclick="logout()">Sair</button>
+<div class="logo">Bet<span>DEMO</span></div>
+<button class="btn-sair" onclick="logout()">Sair</button>
 </header>
 
-<div class="container">
-  <aside class="menu">
-    <ul>
-      <li onclick="show('resumo')">Resumo</li>
-      <li onclick="show('usuarios')">Usuários</li>
-      <li onclick="show('cassino')">Cassino</li>
-    </ul>
-  </aside>
+<div class="layout">
+<aside class="sidebar">
+<ul>
+<li onclick="show('admHome')">📊 Dashboard</li>
+<li onclick="show('admUsers')">👥 Usuários</li>
+<li onclick="show('admCassino')">🎰 Cassino</li>
+<li onclick="show('admBonus')">🎁 Bônus</li>
+</ul>
+</aside>
 
-  <main class="conteudo">
-    <section id="resumo" class="painel">
-      <h2>Resumo Financeiro</h2>
-      <p>Saldo Casa: <span id="saldoCasa">R$ 50.000,00</span></p>
-    </section>
+<main class="conteudo">
+<section id="admHome" class="painel">
+<h2>Resumo</h2>
+<div class="grid">
+<div class="card"><h4>Usuários</h4><div class="big" id="a_users">0</div></div>
+<div class="card"><h4>Saldo Casa</h4><div class="big" id="saldoCasa">R$0</div></div>
+</div>
+</section>
 
-    <section id="usuarios" class="painel hidden">
-      <h2>Usuários</h2>
-      <p>Gerencie usuários demo (criar, editar, bloquear)</p>
-    </section>
+<section id="admUsers" class="painel hidden">
+<h2>Gerenciar Usuários</h2>
+<input id="newUser" placeholder="Novo usuário">
+<input id="newSaldo" type="number" placeholder="Saldo inicial">
+<button onclick="createUser()">Criar</button>
+<table class="tabela">
+<thead><tr><th>Usuário</th><th>Saldo</th><th>Bloquear</th><th>Excluir</th></tr></thead>
+<tbody id="admList"></tbody>
+</table>
+</section>
 
-    <section id="cassino" class="painel hidden">
-      <h2>Cassino Demo</h2>
-      <p>Veja atividades, bônus e roletas de demo</p>
-    </section>
-  </main>
+<section id="admCassino" class="painel hidden">
+<h2>Cassino Demo</h2>
+<p>Visualizar e testar slots e roletas de usuários</p>
+</section>
+
+<section id="admBonus" class="painel hidden">
+<h2>Bônus & Cashback</h2>
+<p>Configurar roleta, cashback e prêmios de demo</p>
+</section>
+</main>
 </div>
 
 <script src="js/script.js"></script>
