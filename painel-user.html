@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Usuário</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="checkUser()">
+
+<header class="topo">
+  <h1>DEMO USUÁRIO</h1>
+  <button onclick="logoutUser()">Sair</button>
+</header>
+
+<div class="container">
+  <aside class="menu">
+    <ul>
+      <li onclick="showUser('saldoUser')">Saldo</li>
+      <li onclick="showUser('cassinoUser')">Cassino</li>
+      <li onclick="showUser('bonusUser')">Bônus</li>
+    </ul>
+  </aside>
+
+  <main class="conteudo">
+    <section id="saldoUser" class="painel">
+      <h2>Saldo Demo</h2>
+      <p id="valorSaldoUser">R$ 100,00</p>
+    </section>
+
+    <section id="cassinoUser" class="painel hidden">
+      <h2>Cassino Online</h2>
+      <p>Slots, Tigrinho, Mini Jogos, etc. (demo)</p>
+      <button onclick="jogarSlot('tigrinho')">Jogar Tigrinho</button>
+    </section>
+
+    <section id="bonusUser" class="painel hidden">
+      <h2>Bônus e Cashback</h2>
+      <button onclick="roletaBonus()">Rodar Roleta</button>
+      <p id="mensagemBonus"></p>
+    </section>
+  </main>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
