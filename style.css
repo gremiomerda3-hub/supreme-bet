@@ -1,117 +1,92 @@
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: Arial, sans-serif;
   background: #0b1f17;
   color: #fff;
 }
 
-/* TOPO */
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  background: #123c2b;
+  padding: 30px;
+  border-radius: 8px;
+  width: 300px;
+}
+
+.login-box input, button {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+}
+
+button {
+  background: #ffc107;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .topo {
   height: 60px;
   background: #0f5132;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 0 20px;
 }
 
-.logo {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.logo span {
-  color: #ffc107;
-}
+.logo span { color: #ffc107; }
 
 .btn-sair {
   background: #dc3545;
+  color: #fff;
   border: none;
   padding: 8px 14px;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 4px;
 }
 
-/* LAYOUT */
-.layout {
-  display: flex;
-  height: calc(100vh - 60px);
-}
+.layout { display: flex; height: calc(100vh - 60px); }
 
-/* SIDEBAR */
 .sidebar {
   width: 220px;
   background: #0a3622;
   padding: 20px;
 }
 
-.sidebar h3 {
-  margin-bottom: 20px;
-  color: #ffc107;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
 .sidebar li {
   padding: 12px;
   cursor: pointer;
-  border-radius: 6px;
 }
 
-.sidebar li:hover {
-  background: #146c43;
-}
+.sidebar li:hover { background: #146c43; }
 
-/* CONTEÚDO */
 .conteudo {
   flex: 1;
-  padding: 25px;
-  background: #0b1f17;
+  padding: 20px;
 }
 
 .painel {
   background: #123c2b;
-  padding: 25px;
-  border-radius: 10px;
-}
-
-.hidden {
-  display: none;
-}
-
-/* CARDS */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.card {
-  background: #0f5132;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
-.card span {
-  font-size: 14px;
-  color: #ccc;
+.hidden { display: none; }
+
+.tabela {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
 }
 
-.card strong {
-  font-size: 26px;
-  display: block;
-  margin-top: 5px;
-}
-
-.card.green {
-  background: #198754;
+.tabela th, .tabela td {
+  border-bottom: 1px solid #1e5c44;
+  padding: 10px;
 }
