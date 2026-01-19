@@ -2,76 +2,40 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>SuaBet • Dashboard</title>
+  <title>Painel Admin</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="checkAdmin(); carregarUsuarios()">
+<body onload="checkAdmin()">
 
 <header class="topo">
-  <div class="logo">SUA<span>BET</span></div>
-  <button class="btn-sair" onclick="logout()">Sair</button>
+  <h1>ADMIN DEMO</h1>
+  <button onclick="logout()">Sair</button>
 </header>
 
-<div class="layout">
-  <aside class="sidebar">
-    <h3>MENU</h3>
+<div class="container">
+  <aside class="menu">
     <ul>
-      <li onclick="show('home')">🏠 Início</li>
-      <li onclick="show('ao-vivo')">🔥 Ao Vivo</li>
-      <li onclick="show('usuarios')">👥 Usuários</li>
+      <li onclick="show('resumo')">Resumo</li>
+      <li onclick="show('usuarios')">Usuários</li>
+      <li onclick="show('cassino')">Cassino</li>
     </ul>
   </aside>
 
   <main class="conteudo">
-
-    <!-- HOME -->
-    <section id="home" class="painel">
-      <div class="grid">
-        <div class="card"><h4>Usuários</h4><div class="big" id="qtdUsers">0</div></div>
-        <div class="card"><h4>Apostas Hoje</h4><div class="big">128</div></div>
-        <div class="card"><h4>Volume (R$)</h4><div class="big">42.350</div></div>
-        <div class="card"><h4>Lucro</h4><div class="big" style="color:#22c55e">+8.420</div></div>
-      </div>
+    <section id="resumo" class="painel">
+      <h2>Resumo Financeiro</h2>
+      <p>Saldo Casa: <span id="saldoCasa">R$ 50.000,00</span></p>
     </section>
 
-    <!-- AO VIVO -->
-    <section id="ao-vivo" class="painel hidden">
-      <h2>🔥 Jogos ao Vivo</h2>
-
-      <div class="match">
-        <div class="teams">Flamengo x Palmeiras</div>
-        <div class="odds">
-          <div class="odd">1.85</div>
-          <div class="odd">3.20</div>
-          <div class="odd">4.10</div>
-        </div>
-      </div>
-
-      <div class="match">
-        <div class="teams">Real Madrid x Barcelona</div>
-        <div class="odds">
-          <div class="odd">2.10</div>
-          <div class="odd">3.40</div>
-          <div class="odd">2.95</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- USUÁRIOS -->
     <section id="usuarios" class="painel hidden">
-      <h2>👥 Cadastro</h2>
-      <input id="u_nome" placeholder="Usuário">
-      <input id="u_saldo" type="number" placeholder="Saldo inicial">
-      <button onclick="criarUsuario()">Criar</button>
-
-      <table class="tabela">
-        <thead>
-          <tr><th>Usuário</th><th>Saldo</th><th>Ação</th></tr>
-        </thead>
-        <tbody id="listaUsuarios"></tbody>
-      </table>
+      <h2>Usuários</h2>
+      <p>Gerencie usuários demo (criar, editar, bloquear)</p>
     </section>
 
+    <section id="cassino" class="painel hidden">
+      <h2>Cassino Demo</h2>
+      <p>Veja atividades, bônus e roletas de demo</p>
+    </section>
   </main>
 </div>
 
